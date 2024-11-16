@@ -520,8 +520,9 @@ async function processTasks() {
         timeoutRunning = setTimeout(() => {
             timeoutRunning = null;
             processing = false;
+            adapter.log.info('processTasks.end...'); //!!!!!!!!!!
             processTasks();
-        }, 100 + duration * 1000);
+        }, 100 + duration * 1000 * 0);
     } else {
         processing = false;
     }
