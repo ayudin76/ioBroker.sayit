@@ -366,9 +366,11 @@ function isCached(cacheDir, text, fileExt, cacheExpiryDays) {
 }
 
 async function processTasks() {
+    adapter.log.info('processTasks.1 - ' + processing);//!!!!!!!!!!!!
     if (processing) {
         return;
     }
+    adapter.log.info('processTasks.2 - ' + processing); //!!!!!!!!!!
     processing = true;
     let {text, language, volume, onlyCache, testOptions} = tasks[0];
     let error;
@@ -389,7 +391,7 @@ async function processTasks() {
         }
     }
 
-
+    adapter.log.info('processTasks.3'); //!!!!!!!!!!
     volume = parseInt(volume || (testOptions && testOptions.volume) || adapter.config.volume, 10);
     if (Number.isNaN(volume)) {
         volume = undefined;
